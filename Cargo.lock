@@ -508,7 +508,7 @@ name = "beefy-merkle-tree"
 version = "4.0.0-dev"
 dependencies = [
  "beefy-primitives",
- "env_logger",
+ "env_logger 0.9.0",
  "hex",
  "hex-literal",
  "log",
@@ -1910,6 +1910,16 @@ dependencies = [
 
 [[package]]
 name = "env_logger"
+version = "0.8.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a19187fea3ac7e84da7dacf48de0c45d63c6a76f9490dae389aead16c243fce3"
+dependencies = [
+ "log",
+ "regex",
+]
+
+[[package]]
+name = "env_logger"
 version = "0.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0b2cf0344971ee6c64c31be0d530793fba457d322dfec2810c453d0ef228f9c3"
@@ -2009,7 +2019,7 @@ version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "21e16290574b39ee41c71aeb90ae960c504ebaf1e2a1c87bd52aa56ed6e1a02f"
 dependencies = [
- "env_logger",
+ "env_logger 0.9.0",
  "log",
 ]
 
@@ -2023,23 +2033,6 @@ dependencies = [
  "libc",
  "redox_syscall",
  "winapi",
-]
-
-[[package]]
-name = "finality-grandpa"
-version = "0.16.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b22349c6a11563a202d95772a68e0fcf56119e74ea8a2a19cf2301460fcd0df5"
-dependencies = [
- "either",
- "futures",
- "futures-timer",
- "log",
- "num-traits",
- "parity-scale-codec",
- "parking_lot 0.12.1",
- "rand 0.8.4",
- "scale-info",
 ]
 
 [[package]]
@@ -2100,7 +2093,7 @@ dependencies = [
 name = "foundation-finality-grandpa"
 version = "4.0.0-dev"
 dependencies = [
- "finality-grandpa",
+ "local-finality-grandpa",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -4202,6 +4195,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "local-finality-grandpa"
+version = "0.0.1"
+dependencies = [
+ "either",
+ "futures",
+ "futures-timer",
+ "log",
+ "num-traits",
+ "parity-scale-codec",
+ "parking_lot 0.12.1",
+ "quickcheck",
+ "rand 0.8.4",
+ "scale-info",
+]
+
+[[package]]
 name = "lock_api"
 version = "0.4.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4630,12 +4639,12 @@ dependencies = [
  "assert_matches",
  "async-trait",
  "dyn-clone",
- "finality-grandpa",
  "fork-tree",
  "foundation-finality-grandpa",
  "futures",
  "futures-timer",
  "hex",
+ "local-finality-grandpa",
  "log",
  "parity-scale-codec",
  "parking_lot 0.12.1",
@@ -5533,7 +5542,7 @@ version = "4.0.0-dev"
 dependencies = [
  "assert_matches",
  "bitflags",
- "env_logger",
+ "env_logger 0.9.0",
  "frame-benchmarking",
  "frame-support",
  "frame-system",
@@ -5781,12 +5790,12 @@ dependencies = [
 name = "pallet-grandpa"
 version = "4.0.0-dev"
 dependencies = [
- "finality-grandpa",
  "foundation-finality-grandpa",
  "frame-benchmarking",
  "frame-election-provider-support",
  "frame-support",
  "frame-system",
+ "local-finality-grandpa",
  "log",
  "pallet-authorship",
  "pallet-balances",
@@ -5899,7 +5908,7 @@ name = "pallet-mmr"
 version = "4.0.0-dev"
 dependencies = [
  "ckb-merkle-mountain-range",
- "env_logger",
+ "env_logger 0.9.0",
  "frame-benchmarking",
  "frame-support",
  "frame-system",
@@ -7221,6 +7230,8 @@ version = "1.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "588f6378e4dd99458b60ec275b4477add41ce4fa9f64dcba6f15adccb19b50d6"
 dependencies = [
+ "env_logger 0.8.4",
+ "log",
  "rand 0.8.4",
 ]
 
@@ -7508,7 +7519,7 @@ dependencies = [
 name = "remote-externalities"
 version = "0.10.0-dev"
 dependencies = [
- "env_logger",
+ "env_logger 0.9.0",
  "frame-support",
  "jsonrpsee",
  "log",
@@ -8252,7 +8263,7 @@ name = "sc-executor"
 version = "0.10.0-dev"
 dependencies = [
  "criterion",
- "env_logger",
+ "env_logger 0.9.0",
  "hex-literal",
  "lazy_static",
  "lru",
@@ -8347,10 +8358,10 @@ dependencies = [
 name = "sc-finality-grandpa-rpc"
 version = "0.10.0-dev"
 dependencies = [
- "finality-grandpa",
  "foundation-finality-grandpa",
  "futures",
  "jsonrpsee",
+ "local-finality-grandpa",
  "log",
  "network-finality-grandpa",
  "parity-scale-codec",
@@ -8644,7 +8655,7 @@ name = "sc-rpc"
 version = "4.0.0-dev"
 dependencies = [
  "assert_matches",
- "env_logger",
+ "env_logger 0.9.0",
  "futures",
  "hash-db",
  "jsonrpsee",
