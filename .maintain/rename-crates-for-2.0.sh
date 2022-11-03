@@ -104,7 +104,7 @@ TO_RENAME=(
     "substrate-client-db sc-client-db"
     "substrate-executor sc-executor"
     "substrate-runtime-test sc-runtime-test"
-    "substrate-finality-grandpa sc-finality-grandpa"
+    "substrate-finality-grandpa network-finality-grandpa"
     "substrate-keystore sc-keystore"
     "substrate-network sc-network"
     "substrate-offchain sc-offchain"

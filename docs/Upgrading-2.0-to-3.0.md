@@ -462,7 +462,7 @@ This has most visible changes for the rpc, where we are switching from the previ
  use node_primitives::{Block, BlockNumber, AccountId, Index, Balance, Hash};
  use sc_consensus_babe::{Config, Epoch};
  use sc_consensus_babe_rpc::BabeRpcHandler;
-@@ -40,7 +41,6 @@ use sc_finality_grandpa::{
+@@ -40,7 +41,6 @@ use network_finality_grandpa::{
  	SharedVoterState, SharedAuthoritySet, FinalityProofProvider, GrandpaJustificationStream
  };
  use sc_finality_grandpa_rpc::GrandpaRpcHandler;

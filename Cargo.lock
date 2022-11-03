@@ -447,13 +447,13 @@ dependencies = [
  "futures-timer",
  "hex",
  "log",
+ "network-finality-grandpa",
  "parity-scale-codec",
  "parking_lot 0.12.1",
  "sc-block-builder",
  "sc-chain-spec",
  "sc-client-api",
  "sc-consensus",
- "sc-finality-grandpa",
  "sc-keystore",
  "sc-network",
  "sc-network-gossip",
@@ -4606,6 +4606,54 @@ dependencies = [
 ]
 
 [[package]]
+name = "network-finality-grandpa"
+version = "0.10.0-dev"
+dependencies = [
+ "ahash",
+ "assert_matches",
+ "async-trait",
+ "dyn-clone",
+ "finality-grandpa",
+ "fork-tree",
+ "futures",
+ "futures-timer",
+ "hex",
+ "log",
+ "parity-scale-codec",
+ "parking_lot 0.12.1",
+ "rand 0.8.4",
+ "sc-block-builder",
+ "sc-chain-spec",
+ "sc-client-api",
+ "sc-consensus",
+ "sc-keystore",
+ "sc-network",
+ "sc-network-common",
+ "sc-network-gossip",
+ "sc-network-test",
+ "sc-telemetry",
+ "sc-utils",
+ "serde",
+ "serde_json",
+ "sp-api",
+ "sp-application-crypto",
+ "sp-arithmetic",
+ "sp-blockchain",
+ "sp-consensus",
+ "sp-core",
+ "sp-finality-grandpa",
+ "sp-keyring",
+ "sp-keystore",
+ "sp-runtime",
+ "sp-tracing",
+ "substrate-prometheus-endpoint",
+ "substrate-test-runtime-client",
+ "tempfile",
+ "thiserror",
+ "tokio",
+]
+
+[[package]]
 name = "nix"
 version = "0.22.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4685,6 +4733,7 @@ dependencies = [
  "jsonrpsee",
  "kitchensink-runtime",
  "log",
+ "network-finality-grandpa",
  "nix 0.23.1",
  "node-executor",
  "node-inspect",
@@ -4713,7 +4762,6 @@ dependencies = [
  "sc-consensus-slots",
  "sc-consensus-uncles",
  "sc-executor",
- "sc-finality-grandpa",
  "sc-keystore",
  "sc-network",
  "sc-network-common",
@@ -4821,6 +4869,7 @@ name = "node-rpc"
 version = "3.0.0-dev"
 dependencies = [
  "jsonrpsee",
+ "network-finality-grandpa",
  "node-primitives",
  "pallet-contracts-rpc",
  "pallet-mmr-rpc",
@@ -4830,7 +4879,6 @@ dependencies = [
  "sc-consensus-babe",
  "sc-consensus-babe-rpc",
  "sc-consensus-epochs",
- "sc-finality-grandpa",
  "sc-finality-grandpa-rpc",
  "sc-rpc",
  "sc-rpc-api",
@@ -4865,6 +4913,7 @@ dependencies = [
  "frame-benchmarking-cli",
  "frame-system",
  "jsonrpsee",
+ "network-finality-grandpa",
  "node-template-runtime",
  "pallet-transaction-payment",
  "pallet-transaction-payment-rpc",
@@ -4874,7 +4923,6 @@ dependencies = [
  "sc-consensus",
  "sc-consensus-aura",
  "sc-executor",
- "sc-finality-grandpa",
  "sc-keystore",
  "sc-rpc",
  "sc-rpc-api",
@@ -8279,54 +8327,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "sc-finality-grandpa"
-version = "0.10.0-dev"
-dependencies = [
- "ahash",
- "assert_matches",
- "async-trait",
- "dyn-clone",
- "finality-grandpa",
- "fork-tree",
- "futures",
- "futures-timer",
- "hex",
- "log",
- "parity-scale-codec",
- "parking_lot 0.12.1",
- "rand 0.8.4",
- "sc-block-builder",
- "sc-chain-spec",
- "sc-client-api",
- "sc-consensus",
- "sc-keystore",
- "sc-network",
- "sc-network-common",
- "sc-network-gossip",
- "sc-network-test",
- "sc-telemetry",
- "sc-utils",
- "serde",
- "serde_json",
- "sp-api",
- "sp-application-crypto",
- "sp-arithmetic",
- "sp-blockchain",
- "sp-consensus",
- "sp-core",
- "sp-finality-grandpa",
- "sp-keyring",
- "sp-keystore",
- "sp-runtime",
- "sp-tracing",
- "substrate-prometheus-endpoint",
- "substrate-test-runtime-client",
- "tempfile",
- "thiserror",
- "tokio",
-]
-
-[[package]]
 name = "sc-finality-grandpa-rpc"
 version = "0.10.0-dev"
 dependencies = [
@@ -8334,10 +8334,10 @@ dependencies = [
  "futures",
  "jsonrpsee",
  "log",
+ "network-finality-grandpa",
  "parity-scale-codec",
  "sc-block-builder",
  "sc-client-api",
- "sc-finality-grandpa",
  "sc-rpc",
  "serde",
  "serde_json",
@@ -8833,12 +8833,12 @@ name = "sc-sync-state-rpc"
 version = "0.10.0-dev"
 dependencies = [
  "jsonrpsee",
+ "network-finality-grandpa",
  "parity-scale-codec",
  "sc-chain-spec",
  "sc-client-api",
  "sc-consensus-babe",
  "sc-consensus-epochs",
- "sc-finality-grandpa",
  "serde",
  "serde_json",
  "sp-blockchain",
