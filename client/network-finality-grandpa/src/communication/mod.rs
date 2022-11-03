@@ -60,7 +60,7 @@ use gossip::{
 };
 use sc_network_common::service::{NetworkBlock, NetworkSyncForkRequest};
 use sc_utils::mpsc::TracingUnboundedReceiver;
-use sp_finality_grandpa::{AuthorityId, AuthoritySignature, RoundNumber, SetId as SetIdNumber};
+use foundation_finality_grandpa::{AuthorityId, AuthoritySignature, RoundNumber, SetId as SetIdNumber};
 
 pub mod gossip;
 mod periodic;
@@ -717,7 +717,7 @@ impl<Block: BlockT> Sink<Message<Block>> for OutgoingMessages<Block> {
 		// when locals exist, sign messages on import
 		if let Some(ref keystore) = self.keystore {
 			let target_hash = *(msg.target().0);
-			let signed = sp_finality_grandpa::sign_message(
+			let signed = foundation_finality_grandpa::sign_message(
 				keystore.keystore(),
 				msg,
 				keystore.local_id().clone(),
@@ -820,7 +820,7 @@ fn check_compact_commit<Block: BlockT>(
 		use crate::communication::gossip::Misbehavior;
 		use finality_grandpa::Message as GrandpaMessage;
 
-		if !sp_finality_grandpa::check_message_signature_with_buffer(
+		if !foundation_finality_grandpa::check_message_signature_with_buffer(
 			&GrandpaMessage::Precommit(precommit.clone()),
 			id,
 			sig,
@@ -909,7 +909,7 @@ fn check_catch_up<Block: BlockT>(
 		for (msg, id, sig) in messages {
 			signatures_checked += 1;
 
-			if !sp_finality_grandpa::check_message_signature_with_buffer(
+			if !foundation_finality_grandpa::check_message_signature_with_buffer(
 				&msg, id, sig, round, set_id, buf,
 			) {
 				debug!(target: "afg", "Bad catch up message signature {}", id);

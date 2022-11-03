@@ -364,7 +364,7 @@ mod tests {
 			};
 
 			let msg = finality_grandpa::Message::Precommit(precommit.clone());
-			let encoded = sp_finality_grandpa::localized_payload(round, set_id, &msg);
+			let encoded = foundation_finality_grandpa::localized_payload(round, set_id, &msg);
 			let signature = peers[0].sign(&encoded[..]).into();
 
 			let precommit = finality_grandpa::SignedPrecommit {

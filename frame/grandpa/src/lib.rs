@@ -29,7 +29,7 @@
 #![cfg_attr(not(feature = "std"), no_std)]
 
 // re-export since this is necessary for `impl_apis` in runtime.
-pub use sp_finality_grandpa as fg_primitives;
+pub use foundation_finality_grandpa as fg_primitives;
 
 use sp_std::prelude::*;
 
@@ -540,7 +540,7 @@ impl<T: Config> Pallet<T> {
 
 		// validate equivocation proof (check votes are different and
 		// signatures are valid).
-		if !sp_finality_grandpa::check_equivocation_proof(equivocation_proof) {
+		if !foundation_finality_grandpa::check_equivocation_proof(equivocation_proof) {
 			return Err(Error::<T>::InvalidEquivocationProof.into())
 		}
 

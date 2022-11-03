@@ -15,7 +15,7 @@
 // along with Substrate.  If not, see <http://www.gnu.org/licenses/>.
 
 use codec::{Decode, Encode};
-pub use sp_finality_grandpa::{AuthorityList, SetId};
+pub use foundation_finality_grandpa::{AuthorityList, SetId};
 use sp_runtime::traits::{Block as BlockT, NumberFor};
 use std::fmt;
 

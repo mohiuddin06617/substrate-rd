@@ -176,7 +176,7 @@ members = [
 	"primitives/database",
 	"primitives/debug-derive",
 	"primitives/externalities",
-	"primitives/finality-grandpa",
+	"primitives/foundation-finality-grandpa",
 	"primitives/inherents",
 	"primitives/io",
 	"primitives/keyring",

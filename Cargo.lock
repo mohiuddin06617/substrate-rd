@@ -443,6 +443,7 @@ dependencies = [
  "async-trait",
  "beefy-primitives",
  "fnv",
+ "foundation-finality-grandpa",
  "futures",
  "futures-timer",
  "hex",
@@ -466,7 +467,6 @@ dependencies = [
  "sp-blockchain",
  "sp-consensus",
  "sp-core",
- "sp-finality-grandpa",
  "sp-keyring",
  "sp-keystore",
  "sp-mmr-primitives",
@@ -2094,6 +2094,23 @@ checksum = "5fc25a87fa4fd2094bffb06925852034d90a17f0d1e05197d4956d3555752191"
 dependencies = [
  "matches",
  "percent-encoding",
+]
+
+[[package]]
+name = "foundation-finality-grandpa"
+version = "4.0.0-dev"
+dependencies = [
+ "finality-grandpa",
+ "log",
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+ "sp-api",
+ "sp-application-crypto",
+ "sp-core",
+ "sp-keystore",
+ "sp-runtime",
+ "sp-std",
 ]
 
 [[package]]
@@ -4615,6 +4632,7 @@ dependencies = [
  "dyn-clone",
  "finality-grandpa",
  "fork-tree",
+ "foundation-finality-grandpa",
  "futures",
  "futures-timer",
  "hex",
@@ -4641,7 +4659,6 @@ dependencies = [
  "sp-blockchain",
  "sp-consensus",
  "sp-core",
- "sp-finality-grandpa",
  "sp-keyring",
  "sp-keystore",
  "sp-runtime",
@@ -4725,6 +4742,7 @@ dependencies = [
  "clap 3.1.18",
  "clap_complete",
  "criterion",
+ "foundation-finality-grandpa",
  "frame-benchmarking-cli",
  "frame-system",
  "frame-system-rpc-runtime-api",
@@ -4783,7 +4801,6 @@ dependencies = [
  "sp-consensus",
  "sp-consensus-babe",
  "sp-core",
- "sp-finality-grandpa",
  "sp-inherents",
  "sp-keyring",
  "sp-keystore",
@@ -4909,6 +4926,7 @@ name = "node-template"
 version = "4.0.0-dev"
 dependencies = [
  "clap 3.1.18",
+ "foundation-finality-grandpa",
  "frame-benchmarking",
  "frame-benchmarking-cli",
  "frame-system",
@@ -4936,7 +4954,6 @@ dependencies = [
  "sp-consensus",
  "sp-consensus-aura",
  "sp-core",
- "sp-finality-grandpa",
  "sp-inherents",
  "sp-keyring",
  "sp-runtime",
@@ -5765,6 +5782,7 @@ name = "pallet-grandpa"
 version = "4.0.0-dev"
 dependencies = [
  "finality-grandpa",
+ "foundation-finality-grandpa",
  "frame-benchmarking",
  "frame-election-provider-support",
  "frame-support",
@@ -5781,7 +5799,6 @@ dependencies = [
  "scale-info",
  "sp-application-crypto",
  "sp-core",
- "sp-finality-grandpa",
  "sp-io",
  "sp-keyring",
  "sp-runtime",
@@ -8331,6 +8348,7 @@ name = "sc-finality-grandpa-rpc"
 version = "0.10.0-dev"
 dependencies = [
  "finality-grandpa",
+ "foundation-finality-grandpa",
  "futures",
  "jsonrpsee",
  "log",
@@ -8343,7 +8361,6 @@ dependencies = [
  "serde_json",
  "sp-blockchain",
  "sp-core",
- "sp-finality-grandpa",
  "sp-keyring",
  "sp-runtime",
  "substrate-test-runtime-client",
@@ -8446,6 +8463,7 @@ dependencies = [
  "async-trait",
  "bitflags",
  "bytes",
+ "foundation-finality-grandpa",
  "futures",
  "libp2p",
  "parity-scale-codec",
@@ -8456,7 +8474,6 @@ dependencies = [
  "smallvec",
  "sp-blockchain",
  "sp-consensus",
- "sp-finality-grandpa",
  "sp-runtime",
  "thiserror",
 ]
@@ -8506,6 +8523,7 @@ name = "sc-network-sync"
 version = "0.10.0-dev"
 dependencies = [
  "fork-tree",
+ "foundation-finality-grandpa",
  "futures",
  "hex",
  "libp2p",
@@ -8525,7 +8543,6 @@ dependencies = [
  "sp-blockchain",
  "sp-consensus",
  "sp-core",
- "sp-finality-grandpa",
  "sp-runtime",
  "sp-test-primitives",
  "sp-tracing",
@@ -9764,23 +9781,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "sp-finality-grandpa"
-version = "4.0.0-dev"
-dependencies = [
- "finality-grandpa",
- "log",
- "parity-scale-codec",
- "scale-info",
- "serde",
- "sp-api",
- "sp-application-crypto",
- "sp-core",
- "sp-keystore",
- "sp-runtime",
- "sp-std",
-]
-
-[[package]]
 name = "sp-inherents"
 version = "4.0.0-dev"
 dependencies = [
@@ -10474,6 +10474,7 @@ dependencies = [
  "beefy-merkle-tree",
  "beefy-primitives",
  "cfg-if 1.0.0",
+ "foundation-finality-grandpa",
  "frame-support",
  "frame-system",
  "frame-system-rpc-runtime-api",
@@ -10497,7 +10498,6 @@ dependencies = [
  "sp-consensus-babe",
  "sp-core",
  "sp-externalities",
- "sp-finality-grandpa",
  "sp-inherents",
  "sp-io",
  "sp-keyring",

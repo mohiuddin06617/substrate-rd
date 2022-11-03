@@ -55,7 +55,7 @@ impl<B: BlockT> NeighborPacketSender<B> {
 }
 
 /// NeighborPacketWorker is listening on a channel for new neighbor packets being produced by
-/// components within `network-finality-grandpa` and forwards those packets to the underlying
+/// components within `network-foundation-finality-grandpa` and forwards those packets to the underlying
 /// `NetworkEngine` through the `NetworkBridge` that it is being polled by (see `Stream`
 /// implementation). Periodically it sends out the last packet in cases where no new ones arrive.
 pub(super) struct NeighborPacketWorker<B: BlockT> {

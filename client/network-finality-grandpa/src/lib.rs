@@ -140,11 +140,11 @@ pub use voting_rule::{
 use aux_schema::PersistentData;
 use communication::{Network as NetworkT, NetworkBridge};
 use environment::{Environment, VoterSetState};
-use sp_finality_grandpa::{AuthorityList, AuthoritySignature, SetId};
+use foundation_finality_grandpa::{AuthorityList, AuthoritySignature, SetId};
 use until_imported::UntilGlobalMessageBlocksImported;
 
 // Re-export these two because it's just so damn convenient.
-pub use sp_finality_grandpa::{AuthorityId, AuthorityPair, GrandpaApi, ScheduledChange};
+pub use foundation_finality_grandpa::{AuthorityId, AuthorityPair, GrandpaApi, ScheduledChange};
 use std::marker::PhantomData;
 
 #[cfg(test)]
@@ -1117,7 +1117,7 @@ where
 			Poll::Ready(Ok(())) => {
 				// voters don't conclude naturally
 				return Poll::Ready(Err(Error::Safety(
-					"network-finality-grandpa inner voter has concluded.".into(),
+					"network-foundation-finality-grandpa inner voter has concluded.".into(),
 				)))
 			},
 			Poll::Ready(Err(CommandOrError::Error(e))) => {

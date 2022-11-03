@@ -37,7 +37,7 @@ use sp_api::{ApiRef, ProvideRuntimeApi};
 use sp_blockchain::Result;
 use sp_consensus::BlockOrigin;
 use sp_core::H256;
-use sp_finality_grandpa::{
+use foundation_finality_grandpa::{
 	AuthorityList, EquivocationProof, GrandpaApi, OpaqueKeyOwnershipProof, GRANDPA_ENGINE_ID,
 };
 use sp_keyring::Ed25519Keyring;
@@ -341,7 +341,7 @@ fn run_to_completion(
 fn add_scheduled_change(block: &mut Block, change: ScheduledChange<BlockNumber>) {
 	block.header.digest_mut().push(DigestItem::Consensus(
 		GRANDPA_ENGINE_ID,
-		sp_finality_grandpa::ConsensusLog::ScheduledChange(change).encode(),
+		foundation_finality_grandpa::ConsensusLog::ScheduledChange(change).encode(),
 	));
 }
 
@@ -352,7 +352,7 @@ fn add_forced_change(
 ) {
 	block.header.digest_mut().push(DigestItem::Consensus(
 		GRANDPA_ENGINE_ID,
-		sp_finality_grandpa::ConsensusLog::ForcedChange(median_last_finalized, change).encode(),
+		foundation_finality_grandpa::ConsensusLog::ForcedChange(median_last_finalized, change).encode(),
 	));
 }
 
@@ -1581,7 +1581,7 @@ fn justification_with_equivocation() {
 			let precommit = finality_grandpa::Precommit { target_hash, target_number };
 
 			let msg = finality_grandpa::Message::Precommit(precommit.clone());
-			let encoded = sp_finality_grandpa::localized_payload(round, set_id, &msg);
+			let encoded = foundation_finality_grandpa::localized_payload(round, set_id, &msg);
 
 			let precommit = finality_grandpa::SignedPrecommit {
 				precommit: precommit.clone(),
@@ -1654,7 +1654,7 @@ fn imports_justification_for_regular_blocks_on_import() {
 		};
 
 		let msg = finality_grandpa::Message::Precommit(precommit.clone());
-		let encoded = sp_finality_grandpa::localized_payload(round, set_id, &msg);
+		let encoded = foundation_finality_grandpa::localized_payload(round, set_id, &msg);
 		let signature = peers[0].sign(&encoded[..]).into();
 
 		let precommit = finality_grandpa::SignedPrecommit {
@@ -1729,13 +1729,13 @@ fn grandpa_environment_doesnt_send_equivocation_reports_for_itself() {
 
 	// reporting the equivocation should fail since the offender is a local
 	// authority (i.e. we have keys in our keystore for the given id)
-	let equivocation_proof = sp_finality_grandpa::Equivocation::Prevote(equivocation.clone());
+	let equivocation_proof = foundation_finality_grandpa::Equivocation::Prevote(equivocation.clone());
 	assert!(matches!(environment.report_equivocation(equivocation_proof), Err(Error::Safety(_))));
 
 	// if we set the equivocation offender to another id for which we don't have
 	// keys it should work
 	equivocation.identity = TryFrom::try_from(&[1; 32][..]).unwrap();
-	let equivocation_proof = sp_finality_grandpa::Equivocation::Prevote(equivocation);
+	let equivocation_proof = foundation_finality_grandpa::Equivocation::Prevote(equivocation);
 	assert!(environment.report_equivocation(equivocation_proof).is_ok());
 }
 

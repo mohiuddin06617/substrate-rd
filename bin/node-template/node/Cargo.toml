@@ -32,7 +32,7 @@ sp-consensus-aura = { version = "0.10.0-dev", path = "../../../primitives/consen
 sp-consensus = { version = "0.10.0-dev", path = "../../../primitives/consensus/common" }
 sc-consensus = { version = "0.10.0-dev", path = "../../../client/consensus/common" }
 network-finality-grandpa = { version = "0.10.0-dev", path = "../../../client/network-finality-grandpa" }
-sp-finality-grandpa = { version = "4.0.0-dev", path = "../../../primitives/finality-grandpa" }
+foundation-finality-grandpa = { version = "4.0.0-dev", path = "../../../primitives/foundation-finality-grandpa" }
 sc-client-api = { version = "4.0.0-dev", path = "../../../client/api" }
 sp-runtime = { version = "6.0.0", path = "../../../primitives/runtime" }
 sp-timestamp = { version = "4.0.0-dev", path = "../../../primitives/timestamp" }

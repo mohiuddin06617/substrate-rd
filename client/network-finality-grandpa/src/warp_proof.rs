@@ -25,7 +25,7 @@ use crate::{
 use sc_client_api::Backend as ClientBackend;
 use sc_network_common::sync::warp::{EncodedProof, VerificationResult, WarpSyncProvider};
 use sp_blockchain::{Backend as BlockchainBackend, HeaderBackend};
-use sp_finality_grandpa::{AuthorityList, SetId, GRANDPA_ENGINE_ID};
+use foundation_finality_grandpa::{AuthorityList, SetId, GRANDPA_ENGINE_ID};
 use sp_runtime::{
 	generic::BlockId,
 	traits::{Block as BlockT, Header as HeaderT, NumberFor, One},
@@ -325,7 +325,7 @@ mod tests {
 	use sc_block_builder::BlockBuilderProvider;
 	use sp_blockchain::HeaderBackend;
 	use sp_consensus::BlockOrigin;
-	use sp_finality_grandpa::GRANDPA_ENGINE_ID;
+	use foundation_finality_grandpa::GRANDPA_ENGINE_ID;
 	use sp_keyring::Ed25519Keyring;
 	use sp_runtime::{generic::BlockId, traits::Header as _};
 	use std::sync::Arc;
@@ -370,9 +370,9 @@ mod tests {
 					.collect::<Vec<_>>();
 
 				let digest = sp_runtime::generic::DigestItem::Consensus(
-					sp_finality_grandpa::GRANDPA_ENGINE_ID,
-					sp_finality_grandpa::ConsensusLog::ScheduledChange(
-						sp_finality_grandpa::ScheduledChange { delay: 0u64, next_authorities },
+					foundation_finality_grandpa::GRANDPA_ENGINE_ID,
+					foundation_finality_grandpa::ConsensusLog::ScheduledChange(
+						foundation_finality_grandpa::ScheduledChange { delay: 0u64, next_authorities },
 					)
 					.encode(),
 				);
@@ -395,7 +395,7 @@ mod tests {
 					let precommit = finality_grandpa::Precommit { target_hash, target_number };
 
 					let msg = finality_grandpa::Message::Precommit(precommit.clone());
-					let encoded = sp_finality_grandpa::localized_payload(42, current_set_id, &msg);
+					let encoded = foundation_finality_grandpa::localized_payload(42, current_set_id, &msg);
 					let signature = keyring.sign(&encoded[..]).into();
 
 					let precommit = finality_grandpa::SignedPrecommit {

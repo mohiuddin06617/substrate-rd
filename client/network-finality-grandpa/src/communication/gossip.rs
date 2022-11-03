@@ -94,7 +94,7 @@ use sc_network_common::protocol::event::ObservedRole;
 use sc_network_gossip::{MessageIntent, ValidatorContext};
 use sc_telemetry::{telemetry, TelemetryHandle, CONSENSUS_DEBUG};
 use sc_utils::mpsc::{tracing_unbounded, TracingUnboundedReceiver, TracingUnboundedSender};
-use sp_finality_grandpa::AuthorityId;
+use foundation_finality_grandpa::AuthorityId;
 use sp_runtime::traits::{Block as BlockT, NumberFor, Zero};
 
 use super::{benefit, cost, Round, SetId};
@@ -890,7 +890,7 @@ impl<Block: BlockT> Inner<Block> {
 			return Action::Discard(cost::UNKNOWN_VOTER)
 		}
 
-		if !sp_finality_grandpa::check_message_signature(
+		if !foundation_finality_grandpa::check_message_signature(
 			&full.message.message,
 			&full.message.id,
 			&full.message.signature,

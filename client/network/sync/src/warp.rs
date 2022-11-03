@@ -28,7 +28,7 @@ use sc_network_common::sync::warp::{
 	WarpSyncProvider,
 };
 use sp_blockchain::HeaderBackend;
-use sp_finality_grandpa::{AuthorityList, SetId};
+use foundation_finality_grandpa::{AuthorityList, SetId};
 use sp_runtime::traits::{Block as BlockT, NumberFor, Zero};
 use std::sync::Arc;
 
